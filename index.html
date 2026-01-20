@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JONGKON LIM | Cinematic Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=11">
+    <meta name="description" content="JONGKON LIM - Cinematic Portfolio based in Sydney and Seoul.">
+    <!-- YouTube IFrame API -->
+    <!-- YouTube IFrame API loaded in script.js -->
+</head>
+
+<body>
+    <div id="video-background-container">
+        <div id="video-background"></div>
+        <div class="overlay"></div>
+    </div>
+
+
+    <nav>
+        <div class="logo">JONGKON LIM</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="locations">SYD / SEL</div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="reveal">JONGKON LIM</span>
+                </h1>
+
+                <p class="hero-description reveal-delay">Available for Commercial, Documentary and Narrative projects —
+                    including short films and independent films.</p>
+                <p class="hero-contact reveal-delay">Fast contact: <a href="tel:+61404675927">0404 675 927</a> | <a
+                        href="mailto:yje03163@gmail.com">yje03163@gmail.com</a></p>
+                <div class="hero-nav-buttons reveal-delay">
+                    <a href="#about" class="hero-nav-btn">About</a>
+                    <a href="#work" class="hero-nav-btn">Work</a>
+                    <a href="#contact" class="hero-nav-btn">Contact</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1rZEAgftpT00kfWplkKcdaWhndbiWmGSN"
+                        class="hero-nav-btn" target="_blank" rel="noopener noreferrer">Download
+                        Credits (PDF)</a>
+                </div>
+            </div>
+            <div class="hero-bg">
+                <!-- Video moved to global background -->
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <!-- Content will be injected via JS when scrolled into view -->
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="container">
+                <h2 class="section-title">Selected Works</h2>
+                <div id="works-list" class="works-list">
+                    <!-- Works will be dynamically generated from works-data.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Detail Modal -->
+        <div id="work-modal" class="work-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+            style="display: none;">
+            <div class="modal-backdrop"></div>
+            <div class="modal-panel">
+                <button class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="modal-content">
+                    <!-- Hero Section: Video Preview or Still -->
+                    <div class="modal-hero" id="modal-hero">
+                        <img id="modal-hero-still" class="modal-hero-still" src="" alt="">
+                        <div id="modal-hero-video" class="modal-hero-video"></div>
+                        <button id="modal-mute-toggle" class="modal-mute-toggle" aria-label="Toggle mute"
+                            style="display: none;">
+                            <svg id="mute-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <line x1="23" y1="9" x2="17" y2="15"></line>
+                                <line x1="17" y1="9" x2="23" y2="15"></line>
+                            </svg>
+                        </button>
+                        <button id="modal-play-overlay" class="modal-play-overlay" style="display: none;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            <span>Play Preview</span>
+                        </button>
+                    </div>
+
+                    <!-- Title & Meta -->
+                    <div class="modal-header">
+                        <h2 id="modal-title" class="modal-title"></h2>
+                        <p class="modal-meta"></p>
+                    </div>
+
+                    <!-- Watch Full Film CTA -->
+                    <div id="modal-cta-section" class="modal-cta-section" style="display: none;">
+                        <a id="modal-watch-full" class="modal-watch-full-btn" href="#" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            <span>Watch Full Film</span>
+                        </a>
+                        <button id="modal-copy-link" class="modal-copy-link-btn" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Copy Link</span>
+                        </button>
+                    </div>
+
+                    <!-- Synopsis -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Synopsis</h3>
+                        <p id="modal-synopsis" class="modal-synopsis"></p>
+                    </div>
+
+                    <!-- My Contribution -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">My Contribution</h3>
+                        <ul id="modal-contribution" class="modal-contribution-list"></ul>
+                    </div>
+
+                    <!-- Credits -->
+                    <div class="modal-section" id="modal-credits-section">
+                        <h3 class="modal-section-title">Credits</h3>
+                        <div id="modal-credits" class="modal-credits"></div>
+                    </div>
+
+                    <!-- Stills Gallery with Tabs -->
+                    <div class="modal-section" id="modal-stills-section">
+                        <div class="modal-stills-header">
+                            <h3 class="modal-section-title">Gallery</h3>
+                            <div class="modal-gallery-tabs" role="tablist" aria-label="Gallery categories">
+                                <button class="modal-gallery-tab" role="tab" aria-selected="true"
+                                    aria-controls="modal-stills" data-category="stills">
+                                    Stills
+                                </button>
+                                <button class="modal-gallery-tab" role="tab" aria-selected="false"
+                                    aria-controls="modal-stills" data-category="onset">
+                                    On Set
+                                </button>
+                                <button class="modal-gallery-tab" role="tab" aria-selected="false"
+                                    aria-controls="modal-stills" data-category="storyboard">
+                                    Storyboard
+                                </button>
+                                <button class="modal-gallery-tab" role="tab" aria-selected="false"
+                                    aria-controls="modal-stills" data-category="lighting">
+                                    Lighting Plan
+                                </button>
+                            </div>
+                        </div>
+                        <div id="modal-stills" class="modal-stills-grid" role="tabpanel"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Connect</h2>
+
+                <div class="contact-wrapper">
+                    <!-- Left Column: Image -->
+                    <div class="contact-image">
+                        <img src="images/contact-portrait-new.jpg" alt="Jongkon Lim" loading="lazy">
+                    </div>
+
+                    <!-- Right Column: Info -->
+                    <div class="contact-info">
+                        <h3>Jongkon Lim</h3>
+                        <p class="contact-location">Based in: Sydney, Australia</p>
+
+                        <!-- Button Group -->
+                        <div class="contact-buttons-group">
+                            <a href="tel:0404675927" class="contact-btn">0404 675 927</a>
+                            <a href="mailto:yje03163@gmail.com" class="contact-btn">Email</a>
+                        </div>
+
+                        <p class="contact-role">Open to Junior Editor roles + Camera Dept, Trainee (Sydney).</p>
+
+                        <a href="https://drive.google.com/uc?export=download&id=1rZEAgftpT00kfWplkKcdaWhndbiWmGSN"
+                            class="contact-btn btn-resume-main" target="_blank" rel="noopener noreferrer">Download
+                            Credits (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JONGKON LIM. All Rights Reserved.</p>
+    </footer>
+
+    <script src="works-data.js?v=13"></script>
+    <script src="script.js?v=19"></script>
+</body>
+
+</html>
